@@ -63,3 +63,83 @@ class UberRideFareCalculator {
 
 const ride1 = new UberRideFareCalculator(10,15,true,false);
 console.log(ride1.calculateRideFare());
+
+// Movie class
+
+class Movie {
+   constructor(title, studio, rating="PG"){
+      this.title = title;
+      this.studio = studio;
+      this.rating = rating;
+   }
+
+   static getPG(moviesArr) {
+      let result = [];
+      moviesArr.forEach((movie)=>{
+         if(movie.rating === "PG"){
+            result.push(movie)
+         }
+      })
+      return result;
+   }
+}
+
+const movie = new Movie("Casino Royale","Eon Productions","PG13");
+console.log(movie);
+
+const movieList = [new Movie("Dr. No", "Eon Productions","PG13"), new Movie("Kung Fu Panda 4","Dreamworks Animation", "PG"), new Movie("Jumanji","Tristar Pictures"), new Movie("Terminator 2:Judgement Day","Carolco Pictures", "R")];
+console.log(Movie.getPG(movieList));
+
+
+// Circle class
+
+class Circle {
+    constructor(radius=1.0, color="Red"){
+       this.radius = radius;
+       this.color = color;
+    }
+ 
+    get getRadius() {
+       return this.radius;
+    }
+ 
+    set setRadius(radius) {
+       this.radius = radius;
+    }
+ 
+    get getColor() {
+       return this.color;
+    }
+ 
+    set setColor(color) {
+       this.color = color;
+    }
+ 
+    toString() {
+       return ` Circle [radius: ${this.radius} , color: ${this.color}]`;
+    }
+ 
+    getArea(){
+       return (Math.PI*(this.radius**2)).toFixed(2);
+    }
+ 
+    getCircumference(){
+       return (2*Math.PI*this.radius).toFixed(2);
+    }
+ }
+ 
+ 
+ var c1 = new Circle();
+ console.log("Circle with no parameter: " + c1.toString());
+ var c2 = new Circle(5.0);
+ console.log("Circle with one parameter: " + c2.toString());
+ var c3 = new Circle(6.0, "Green");
+ console.log("Circle with both parameter: " + c3.toString());
+ console.log("getRadius: " + c3.getRadius);
+ c3.setRadius=12.0;
+ console.log("Radius value after setRadius: " + c3.getRadius);
+ console.log("getColor: " + c3.getColor);
+ c3.setColor="Yellow";
+ console.log("Color Value after setColor: " + c3.getColor);
+ console.log("Area: " + c3.getArea());
+ console.log("Circumference: " + c3.getCircumference());
